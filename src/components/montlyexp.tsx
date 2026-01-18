@@ -232,7 +232,7 @@ export default function MontlyExp() {
 
         {/* HEADER */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-          <h1 className="text-2xl font-bold">💰 Shop Finance</h1>
+          <h1 className="text-2xl font-bold">💰 Monthly Expenses</h1>
 
           <div className="flex gap-3">
             <button
@@ -244,19 +244,75 @@ export default function MontlyExp() {
           </div>
         </div>
 
-        {/* SUMMARY */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="p-4 bg-gray-50 rounded-lg shadow-sm">
-            <div className="text-sm text-gray-500">Total Income</div>
-            <div className="text-xl font-semibold text-green-600">₹{totalIn}</div>
-          </div>
-          <div className="p-4 bg-gray-50 rounded-lg shadow-sm">
-            <div className="text-sm text-gray-500">Total Expense</div>
-            <div className="text-xl font-semibold text-red-600">₹{totalOut}</div>
-          </div>
-          <div className="p-4 bg-gray-50 rounded-lg shadow-sm">
-            <div className="text-sm text-gray-500">Current Balance</div>
-            <div className="text-xl font-semibold text-blue-600">₹{currentBalance}</div>
+        {/* SUMMARY - Polished ATM glass card */}
+        <div className="mb-6">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800/30 to-sky-900/22 backdrop-blur-2xl border border-white/12 p-4 sm:p-6 shadow-[0_10px_30px_rgba(2,6,23,0.6)] hover:shadow-[0_18px_50px_rgba(2,6,23,0.7)] transition-shadow">
+
+            {/* soft decorative glow */}
+            <div className="absolute -top-10 -right-16 w-56 h-56 bg-gradient-to-tr from-indigo-400/12 to-transparent rounded-full blur-3xl mix-blend-screen pointer-events-none" />
+
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              {/* Left: branding + large balance */}
+              <div className="flex-1 min-w-0 flex flex-col">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-semibold text-white">FinShop</div>
+                    <div className="text-xs text-white/60 mt-1">Account Overview</div>
+                  </div>
+                  <div className="ml-3 p-2 bg-white/8 rounded-md flex items-center justify-center">
+                    <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="4" width="26" height="12" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.06)"/>
+                      <rect x="5" y="7" width="6" height="6" rx="1" fill="rgba(255,255,255,0.18)"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <div className="text-xs text-white/70">Available Balance</div>
+                  <div className="mt-1 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">₹{currentBalance}</div>
+                </div>
+              </div>
+
+              {/* Right: three stat chips (horizontal scroll on mobile) */}
+              <div className="flex-1 w-full">
+                <div className="flex gap-3 sm:grid sm:grid-cols-3 sm:gap-4 overflow-x-auto py-2 sm:py-0">
+
+                  <div className="min-w-[160px] sm:min-w-0 bg-white/6 backdrop-blur-sm rounded-2xl p-3 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-md bg-green-400/10 flex items-center justify-center">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M5 12h14" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="text-xs text-white/80">Total Income</div>
+                      <div className="text-lg font-semibold text-green-300">₹{totalIn}</div>
+                    </div>
+                  </div>
+
+                  <div className="min-w-[160px] sm:min-w-0 bg-white/6 backdrop-blur-sm rounded-2xl p-3 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-md bg-red-400/10 flex items-center justify-center">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22V2" stroke="#FB7185" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M19 12H5" stroke="#FB7185" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="text-xs text-white/80">Total Expense</div>
+                      <div className="text-lg font-semibold text-red-300">₹{totalOut}</div>
+                    </div>
+                  </div>
+
+                  <div className="min-w-[160px] sm:min-w-0 bg-white/6 backdrop-blur-sm rounded-2xl p-3 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-md bg-blue-400/10 flex items-center justify-center">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v12" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M6 10h12" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="text-xs text-white/80">Net</div>
+                      <div className="text-lg font-semibold text-blue-200">₹{currentBalance}</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/6 via-transparent to-black/6 mix-blend-overlay" />
           </div>
         </div>
 
@@ -267,27 +323,27 @@ export default function MontlyExp() {
         >
           <input
             type="date"
-            className="input"
+            className="w-full min-w-0 rounded-2xl border border-gray-200 bg-white px-3 py-3 sm:px-4 sm:py-3 text-sm sm:text-base text-black placeholder-gray-400 shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400"
             value={form.date}
             onChange={(e) => setForm({ ...form, date: e.target.value })}
           />
 
           <input
-            className="input"
+            className="w-full min-w-0 rounded-2xl border border-gray-200 bg-white px-3 py-3 sm:px-4 sm:py-3 text-sm sm:text-base text-black placeholder-gray-400 shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400"
             placeholder="Name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
 
           <input
-            className="input"
+            className="w-full min-w-0 rounded-2xl border border-gray-200 bg-white px-3 py-3 sm:px-4 sm:py-3 text-sm sm:text-base text-black placeholder-gray-400 shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400"
             placeholder="Description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
 
           <select
-            className="input"
+            className="w-full min-w-0 rounded-2xl border border-gray-200 bg-white px-3 py-3 sm:px-4 sm:py-3 text-sm sm:text-base text-black placeholder-gray-400 shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400"
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
           >
@@ -298,7 +354,7 @@ export default function MontlyExp() {
 
           <input
             type="number"
-            className="input"
+            className="w-full min-w-0 rounded-2xl border border-gray-200 bg-white px-3 py-3 sm:px-4 sm:py-3 text-sm sm:text-base text-black placeholder-gray-400 shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400"
             placeholder="Amount"
             value={String(form.amount)}
             onChange={(e) => setForm({ ...form, amount: e.target.value })}

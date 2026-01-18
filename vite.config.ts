@@ -7,4 +7,9 @@ export default defineConfig({
   plugins: [react(), 
     tailwindcss()
   ],
+   server: {
+    allowedHosts: [
+      'unnecessary-keith-researchers-race.trycloudflare.com'
+    ]
+  }
 })
